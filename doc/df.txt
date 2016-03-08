@@ -1,0 +1,76 @@
+/**
+ * Created by Administrator on 2016/1/27.
+ */
+function Point(x,y){
+    this.x = x;
+    this.y = y;
+}
+
+var p = new Point(3,4);
+
+Point.prototype.r = function(){
+    return Math.sqrt(this.x*this.x +this.y*this.y);
+};
+Point.prototype.area = function(){
+    return Math.PI*Math.pow(1, 2)*0.5;
+};
+p.r();
+
+console.log(p.r())
+console.log(p.area())
+
+function Fun(tt){
+    this.tt = tt;
+    Math.PI
+    console.log(tt+" 123546");
+}
+Fun.prototype.f = function(){
+    return this.tt;
+}
+
+var fun = new Fun("ffff");
+console.log(fun.f())
+
+console.log(Infinity)
+
+var x = .3-.2;//在JS的真实运行环境中，0.3--0.2 0.09999999999999998
+var y = .2-.1;
+console.log("x==.1"+(x==.1)+"  y==.1"+(y==.1)+(y===.1)+" "+(x==y));
+console.log(x);
+
+var then = new Date(2016,0,12);
+var later = new Date(2016,0,12,18,12,45);//2016-1-12 18:12:45
+var now = new Date();
+var elapsed = later-then;//毫秒数
+console.log("elapsed="+elapsed+" getFullYear="+later.getFullYear()+" getMonth="+later.getMonth()+" getDate="+later.getDate()+" getDay="+later.getDay()+" getHours="+later.getHours()+" getUTCHours="+later.getUTCHours());
+
+var e="e";
+console.log(e.length);
+
+var scope ="global";
+function f(){
+    console.log(scope);
+    var scope ="local";
+    console.log(scope)
+}
+f();
+
+var truevar =1;
+fakevar =2;
+this.fakevar2 = 3;
+console.log(delete truevar);
+console.log(delete fakevar);
+console.log(delete this.fakevar2);
+
+
+var p={x:2.3, y:63.0};
+console.log(p.x+"  "+ p.y);
+
+var square= function(x,y){return x*y};
+console.log(square(10,45));
+var d = new Date();
+console.log(d instanceof Date);
+console.log('dd' instanceof String);
+console.log(typeof d);
+console.log(typeof "test"=="string");
+
