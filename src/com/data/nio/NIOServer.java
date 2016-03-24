@@ -68,6 +68,7 @@ public class NIOServer {
 					channel.register(this.selector, SelectionKey.OP_READ);
 					
 					// 获得了可读的事件
+
 				} else if (key.isReadable()) {
 						read(key);
 				}
