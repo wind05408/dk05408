@@ -10,7 +10,7 @@ import java.util.Iterator;
 
 /**
  * NIO客户端
- * @author 小路
+ * @author dk
  */
 public class NIOClient {
 	//通道管理器

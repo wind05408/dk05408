@@ -11,7 +11,7 @@ import java.util.Iterator;
 
 /**
  * NIO服务端
- * @author 小路
+ * @author dk
  */
 public class NIOServer {
 	//通道管理器
