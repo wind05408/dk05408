@@ -80,5 +80,6 @@ console.log(oo.xx);
 //console.log(classof(classof));
 
 tt = JSON.stringify(o);
+tt.toJSON();
 console.log(tt);
 console.log(JSON.parse(tt));
