@@ -10,6 +10,7 @@ import java.util.Map;
 /**
  * @author dk
  * @date 2016/3/30
+ * 输入参数注解验证
  */
 public class AnnotationTest {
 
@@ -17,7 +18,6 @@ public class AnnotationTest {
     public Object obj;
 
     public static void main(String[] args) throws NoSuchFieldException, IllegalAccessException, NoSuchMethodException, InvocationTargetException {
-
 //        Field field =AnnotationTest.class.getField("obj");
 //
 //        UserAnnotation ua = field.getAnnotation(UserAnnotation.class);

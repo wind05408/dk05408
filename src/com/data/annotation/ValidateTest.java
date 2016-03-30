@@ -4,11 +4,11 @@ package com.data.annotation;
  * @author dk
  * @date 2016/3/30
  */
-public class ValidateTest {
+public class ValidateTest implements IRequest{
     @Validate(type = ValidateTypeKind.Length, name = "name", maxLength = 5, required = true)
     private String name;
 
-    @Validate(type = ValidateTypeKind.Number, name = "½ð¶î", maxLength = 12, required = true)
+    @Validate(type = ValidateTypeKind.Number, name = "money", maxLength = 12, required = true)
     private String amount;
 
     public String getName() {

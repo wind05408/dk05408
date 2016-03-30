@@ -52,12 +52,30 @@ public class ValidateTools {
     private static boolean isNull(String field, IRequest req) {
         boolean result = false;
 
-//        if (StringUtil.isEmpty(getValue(field, req))) {
-//            result = true;
-//        }
+        if (isBlank(getValue(field, req))) {
+            result = true;
+        }
 
         return result;
     }
+
+    public static boolean isBlank(CharSequence cs) {
+        int strLen;
+        if(cs != null && (strLen = cs.length()) != 0) {
+            for(int i = 0; i < strLen; ++i) {
+                if(!Character.isWhitespace(cs.charAt(i))) {
+                    return false;
+                }
+            }
+            return true;
+        } else {
+            return true;
+        }
+    }
+
+
+
+
 
     private static boolean length(String field, IRequest req, int maxLength) {
         boolean result = false;
@@ -132,9 +150,9 @@ public class ValidateTools {
                     if (true == isNull(field.getName(), req)) {
                         requiredList.add(validateUtil.name());
                     }
-//                if (StringUtil.isEmpty(getValue(field.getName(), req))) {
-//                    continue; // 没有数据的字段，跳过长度和数字的检查
-//                }
+                if (isBlank(getValue(field.getName(), req))) {
+                    continue; // 没有数据的字段，跳过长度和数字的检查
+                }
                 ValidateTypeKind type = validateUtil.type();
                 if (ValidateTypeKind.Length == type) {
                     if (true == length(field.getName(), req, validateUtil.maxLength())) {
