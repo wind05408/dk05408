@@ -3,11 +3,11 @@ package com.data.annotation;
 /**
  * @author dk
  * @date 2016/3/30
- * 输入参数注解验证
+ * 杈撳叆鍙傛暟娉ㄨВ楠岃瘉
  */
 public class AnnotationValidateTest {
     public static void main(String[] args) {
-        ValidateTest test = new ValidateTest();//继承IRequest
+        ValidateTest test = new ValidateTest();//缁ф壙IRequest
         test.setName("123456489");
         test.setAmount("fdf");
         System.out.println(ValidateTools.validate(test));
