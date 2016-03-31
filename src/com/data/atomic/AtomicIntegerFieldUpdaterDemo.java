@@ -29,7 +29,7 @@ public class AtomicIntegerFieldUpdaterDemo {
     class DemoData{
         public volatile int value1 = 1;
         volatile  int value2 = 2;
-        //下面是不可见的
+        //下面是不可见的 protected private
         protected volatile int value3 = 3;
         private volatile int value4 = 4;
     }
