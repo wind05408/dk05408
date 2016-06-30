@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<script type="text/javascript">
+function go(){
+
+    var str=document.getElementById("tx").value;
+    var patt1=/(?!.*\n|.*\t|.*\r|.*\f|.*\v)^.*$/;
+    var result = patt1.test(str);
+
+    alert(str+"Result: " + result);
+
+    // input里面不允许包含：初中、中学、初级中学这三个词语
+//    var input = "C   初a中，，，高a中   ";
+//    var r = /(?!.*初中|.*中学|.*初级中学)^.*$/;
+//    alert(r.test(input));
+}
+</script>
+<body>
+<input type="text"  id="tx" name="tx" />
+<input type="button"  onclick="go()" value="test" />
+</body>
+</html>

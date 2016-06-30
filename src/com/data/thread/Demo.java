@@ -8,7 +8,7 @@ public class Demo {
     final int x;
 
     public Demo(T1 t1) {
-        t1.demo = this;// ½«thisÔÚ¹¹ÔìÆÚ¼ä¾ÍÒÝ³ö£¬ÕâÑùÒÝ³öµÄ¶ÔÏó±»ÈÏÎªÊÇ¡°Ã»ÓÐÕýÈ·¹¹½¨µÄ(not properly constructed)¡±
+        t1.demo = this;// ï¿½ï¿½thisï¿½Ú¹ï¿½ï¿½ï¿½ï¿½Ú¼ï¿½ï¿½ï¿½Ý³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý³ï¿½ï¿½Ä¶ï¿½ï¿½ï¿½ï¿½ï¿½Îªï¿½Ç¡ï¿½Ã»ï¿½ï¿½ï¿½ï¿½È·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(not properly constructed)ï¿½ï¿½
         try {
             Thread.sleep(100000000L);
         } catch (InterruptedException e) {
@@ -22,9 +22,14 @@ public class Demo {
     }
 
     public static void main(String[] args) throws IOException, InterruptedException, ClassNotFoundException {
-        T1 t1 = new T1();
-        t1.start();
-        new Demo(t1);
+//        T1 t1 = new T1();
+//        t1.start();
+//        new Demo(t1);
+        String[] a = {"1","2","3"};
+        for (int i = 0; i <a.length ; i++) {
+          a[i] = a[i]+"P";
+        }
+        System.out.println(a[0]);
     }
 
     static class T1 extends Thread {
