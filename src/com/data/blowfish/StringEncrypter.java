@@ -6,11 +6,11 @@ package com.data.blowfish;
  */
 public class StringEncrypter {
 //    private static final Logger logger = Logger.getLogger(StringEncrypter.class);
-    private static final String salt = "sfasdfdasfdsf, vfdodno.fds*AD:D";
-    private static BlowfishUtil blowfish;
+    private static final String salt = "sfasdfdasfdsf, vfdodno.fds*AD:Dsdfsfdaffffff21rw523423423";
+    private static BlowfishForStr blowfish;
 
     static {
-        blowfish = new BlowfishUtil(salt.substring(32), salt.substring(48, 56));
+        blowfish = new BlowfishForStr(salt.substring(32), salt.substring(48, 56));
     }
 
     /**

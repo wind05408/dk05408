@@ -10,13 +10,13 @@ import java.util.Random;
 
 /**
  *
- *    一、Blowfish算法是什么呢？   　　
- *     Blowfish是一个64位分组及可变密钥长度的分组密码算法，算法由两部分组成：密钥扩展和数据加密。密钥扩展把长度可达到448位的密钥转变成总共4168字节的几个子密钥。
- *　　 数据加密由一个简单函数迭代16轮，每一轮由密钥相关的置换，密钥相关和数据相关的代替组成。所有的运算都是32位字的加法和异或，仅有的另一个运算是每轮的四个查表。
- *　　  Blowfish使用了大量的子密钥，这些密钥必须在加密及解密之前进行预计算。
+ *  一、Blowfish算法是什么呢？   　　
+ *   Blowfish是一个64位分组及可变密钥长度的分组密码算法，算法由两部分组成：密钥扩展和数据加密。密钥扩展把长度可达到448位的密钥转变成总共4168字节的几个子密钥。
+ *　　数据加密由一个简单函数迭代16轮，每一轮由密钥相关的置换，密钥相关和数据相关的代替组成。所有的运算都是32位字的加法和异或，仅有的另一个运算是每轮的四个查表。
+ *　　Blowfish使用了大量的子密钥，这些密钥必须在加密及解密之前进行预计算。
  *
  *    二、Blowfish算法的计算步骤？
- *
+
  *     　1.初始化P数组,然后是4个S盒用固定的串.这些串由π的十六进制组成.
  *
  *   　　2.用密钥的第一个32位与P1异或,用密钥的第二个32位与P2异或,依此类推,直到密钥的所有位(直到P18).周期性地循环密钥的所有位直到整个P数组与密钥异或完为止.
@@ -26,10 +26,10 @@ import java.util.Random;
  *   　　4.用第3步的输出取代P1和P2.
  *
  *   　　5.利用Blowfish算法加密第3步的输出,其密钥为修改过的子密钥.
- *
- *   　　6.用第5步的输出取代P3和P4.
- *
- *   　　7.重重上述操作,直到P数组的所有元素及4个S盒全部被连续变化的Blowfish的输出所取代.
+
+     　　6.用第5步的输出取代P3和P4.
+
+     　　7.重重上述操作,直到P数组的所有元素及4个S盒全部被连续变化的Blowfish的输出所取代.
  */
 
 public class BlowfishUtil {
@@ -39,131 +39,6 @@ public class BlowfishUtil {
             '0', '1', '2', '3', '4', '5', '6', '7', '8', '9',
             'a', 'b', 'c', 'd', 'e', 'f'
     };
-
-    public BlowfishUtil(String password, String iv) {
-        // hash down the password to a 160bit key
-        MessageDigest digest = null;
-        try {
-            digest = MessageDigest.getInstance("SHA1");
-            digest.update(password.getBytes());
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        // setup the encryptor (use a dummy IV)
-        m_bfish = new BlowfishCBC(digest.digest(), iv.getBytes());
-        digest.reset();
-    }
-
-    /**
-     * encrypts a string (treated in UNICODE) using the standard Java random
-     * generator, which isn't that great for creating IVs
-     *
-     * @param content
-     *            string to encrypt
-     * @return encrypted string in binhex format
-     */
-    public String encryptString(String content) {
-        // allocate the buffer (align to the next 8 byte border plus padding)
-        int nStrLen = content.length();
-        byte[] buf = new byte[((nStrLen << 1) & 0xfffffff8) + 8];
-        // copy all bytes of the string into the buffer (use network byte order)
-        int nI;
-        int nPos = 0;
-        for (nI = 0; nI < nStrLen; nI++) {
-            char cActChar = content.charAt(nI);
-            buf[nPos++] = (byte) ((cActChar >> 8) & 0x0ff);
-            buf[nPos++] = (byte) (cActChar & 0x0ff);
-        }
-        // pad the rest with the PKCS5 scheme
-        byte bPadVal = (byte) (buf.length - (nStrLen << 1));
-        while (nPos < buf.length) {
-            buf[nPos++] = bPadVal;
-        }
-        // encrypt the buffer
-        m_bfish.encrypt(buf);
-        // return the binhex string
-        return bytesToBinHex(buf, 0, buf.length);
-    }
-
-    public byte[] encrypt(String cotent) {
-        // allocate the buffer (align to the next 8 byte border plus padding)
-        int nStrLen = cotent.length();
-        byte[] buf = new byte[((nStrLen << 1) & 0xfffffff8) + 8];
-        // copy all bytes of the string into the buffer (use network byte order)
-        int nI;
-        int nPos = 0;
-        for (nI = 0; nI < nStrLen; nI++) {
-            char cActChar = cotent.charAt(nI);
-            buf[nPos++] = (byte) ((cActChar >> 8) & 0x0ff);
-            buf[nPos++] = (byte) (cActChar & 0x0ff);
-        }
-        // pad the rest with the PKCS5 scheme
-        byte bPadVal = (byte) (buf.length - (nStrLen << 1));
-        while (nPos < buf.length) {
-            buf[nPos++] = bPadVal;
-        }
-        // encrypt the buffer
-        m_bfish.encrypt(buf);
-        return buf;
-    }
-
-    /**
-     * decrypts a hexbin string (handling is case sensitive)
-     *
-     * @param content
-     *            hexbin string to decrypt
-     * @return decrypted string (null equals an error)
-     */
-    public String decryptString(String content) {
-        // get the number of estimated bytes in the string (cut off broken
-        // blocks)
-        int nLen = (content.length() >> 1) & ~7;
-        // does the given stuff make sense (at least the CBC IV)?
-        if (nLen < BlowfishECB.BLOCKSIZE)
-            return null;
-        // get all data bytes now
-        byte[] buf = new byte[nLen];
-        int nNumOfBytes = binHexToBytes(content, buf, 0, 0, nLen);
-        // we cannot accept broken binhex sequences due to padding and
-        // decryption
-        if (nNumOfBytes < nLen) {
-            return null;
-        }
-        // decrypt the buffer
-        m_bfish.decrypt(buf);
-        // get the last padding byte
-        int nPadByte = (int) buf[buf.length - 1] & 0x0ff;
-        // ( try to get all information if the padding doesn't seem to be
-        // correct)
-        if ((nPadByte > 8) || (nPadByte < 0)) {
-            nPadByte = 0;
-        }
-        // calculate the real size of this message
-        nNumOfBytes -= nPadByte;
-        if (nNumOfBytes < 0) {
-            return "";
-        }
-        return byteArrayToUNCString(buf, 0, nNumOfBytes);
-    }
-
-    public String decrypt(byte[] content) {
-        int nNumOfBytes = content.length;
-        // decrypt the buffer
-        m_bfish.decrypt(content);
-        // get the last padding byte
-        int nPadByte = (int) content[content.length - 1] & 0x0ff;
-        // ( try to get all information if the padding doesn't seem to be
-        // correct)
-        if ((nPadByte > 8) || (nPadByte < 0)) {
-            nPadByte = 0;
-        }
-        // calculate the real size of this message
-        nNumOfBytes -= nPadByte;
-        if (nNumOfBytes < 0) {
-            return null;
-        }
-        return byteArrayToUNCString(content, 0, nNumOfBytes);
-    }
 
     private static class BlowfishCBC extends BlowfishECB {
         public long getCBCIV() {
@@ -664,13 +539,13 @@ public class BlowfishUtil {
         digest.reset();
     }
 
-//    public String encryptString(String sPlainText) {
-//        long lCBCIV;
-//        synchronized (m_rndGen) {
-//            lCBCIV = m_rndGen.nextLong();
-//        }
-//        return encStr(sPlainText, lCBCIV);
-//    }
+    public String encryptString(String sPlainText) {
+        long lCBCIV;
+        synchronized (m_rndGen) {
+            lCBCIV = m_rndGen.nextLong();
+        }
+        return encStr(sPlainText, lCBCIV);
+    }
 
     private String encStr(String sPlainText, long lNewCBCIV) {
         int nStrLen = sPlainText.length();
@@ -691,31 +566,31 @@ public class BlowfishUtil {
         return bytesToBinHex(newCBCIV, 0, 8) + bytesToBinHex(buf, 0, buf.length);
     }
 
-//    public String decryptString(String sCipherText) {
-//        int nLen = sCipherText.length() >> 1 & -8;
-//        if (nLen < 8)
-//            return null;
-//        byte cbciv[] = new byte[8];
-//        int nNumOfBytes = binHexToBytes(sCipherText, cbciv, 0, 0, 8);
-//        if (nNumOfBytes < 8)
-//            return null;
-//        m_bfish.setCBCIV(cbciv);
-//        if ((nLen -= 8) == 0)
-//            return "";
-//        byte buf[] = new byte[nLen];
-//        nNumOfBytes = binHexToBytes(sCipherText, buf, 16, 0, nLen);
-//        if (nNumOfBytes < nLen)
-//            return null;
-//        m_bfish.decrypt(buf);
-//        int nPadByte = buf[buf.length - 1] & 0xff;
-//        if (nPadByte > 8 || nPadByte < 0)
-//            nPadByte = 0;
-//        nNumOfBytes -= nPadByte;
-//        if (nNumOfBytes < 0)
-//            return "";
-//        else
-//            return byteArrayToUNCString(buf, 0, nNumOfBytes);
-//    }
+    public String decryptString(String sCipherText) {
+        int nLen = sCipherText.length() >> 1 & -8;
+        if (nLen < 8)
+            return null;
+        byte cbciv[] = new byte[8];
+        int nNumOfBytes = binHexToBytes(sCipherText, cbciv, 0, 0, 8);
+        if (nNumOfBytes < 8)
+            return null;
+        m_bfish.setCBCIV(cbciv);
+        if ((nLen -= 8) == 0)
+            return "";
+        byte buf[] = new byte[nLen];
+        nNumOfBytes = binHexToBytes(sCipherText, buf, 16, 0, nLen);
+        if (nNumOfBytes < nLen)
+            return null;
+        m_bfish.decrypt(buf);
+        int nPadByte = buf[buf.length - 1] & 0xff;
+        if (nPadByte > 8 || nPadByte < 0)
+            nPadByte = 0;
+        nNumOfBytes -= nPadByte;
+        if (nNumOfBytes < 0)
+            return "";
+        else
+            return byteArrayToUNCString(buf, 0, nNumOfBytes);
+    }
 
     public void destroy() {
         m_bfish.cleanUp();
