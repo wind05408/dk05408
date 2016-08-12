@@ -8,6 +8,7 @@ import java.lang.reflect.Method;
  *
  * @author dk
  * @date 2016/8/12
+ * spring reflect
  */
 public class ReflectTest {
     public static ReflectVO initByDefaultConst() throws Throwable{
