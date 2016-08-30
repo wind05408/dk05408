@@ -15,8 +15,9 @@ public class TestForumService {
 //        System.out.println("");
 //        forumService .removeTopic(1012);
 
+        //********************************************
 
-        //①希望被代理的目标业务类
+   /*     //①希望被代理的目标业务类
         ForumService target = new ForumServiceImpl();
 
         //②将目标业务类和横切代码编织到一起
@@ -31,6 +32,14 @@ public class TestForumService {
         //④调用代理实例
         proxy.removeForum(10);
         System.out.println("");
-        proxy.removeTopic(1012);
+        proxy.removeTopic(1012);*/
+      //********************************************
+
+        //cglib
+        CglibProxy proxy = new CglibProxy();
+        ForumServiceImpl forumService = //①
+        (ForumServiceImpl )proxy.getProxy(ForumServiceImpl.class);
+        forumService.removeForum(10);
+        forumService.removeTopic(1023);
     }
 }
