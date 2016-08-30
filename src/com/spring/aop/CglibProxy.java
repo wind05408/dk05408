@@ -1,6 +1,5 @@
 package com.spring.aop;
 
-import net.sf.cglib.core.ObjectSwitchCallback;
 import net.sf.cglib.proxy.Enhancer;
 import net.sf.cglib.proxy.MethodInterceptor;
 import net.sf.cglib.proxy.MethodProxy;
@@ -28,3 +27,12 @@ public class CglibProxy implements MethodInterceptor {
         return result;
     }
 }
+
+/**
+ * jar
+ * asm-2.2.3.jar
+ * asm-commons-2.2.3.jar
+ * asm-util-2.2.3.jar
+ * cglib-nodep-2.1_3.jar
+ *
+ */
