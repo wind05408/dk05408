@@ -14,6 +14,9 @@ import java.util.concurrent.CountDownLatch;
  * 初始值决定CountDownLatch类需要等待的事件的数量。
  * await() 方法, 被等待全部事件终结的线程调用。
  * countDown() 方法，事件在结束执行后调用。
+ *
+ * CountDownLatch等待的是事件
+ * CyclicBarrier等待的是其他线程
  */
 public class CountDownLatchTest {
     final static SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
