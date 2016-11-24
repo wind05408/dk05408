@@ -32,6 +32,7 @@ public abstract class Account {
      * 基本方法，已经实现
      */
     private double calculateAmount(String accountType){
+        System.out.println(accountType);
         /**
          * 省略相关的业务逻辑
          */

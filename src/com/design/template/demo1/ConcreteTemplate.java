@@ -10,11 +10,11 @@ public class ConcreteTemplate extends AbstractTemplate {
 
     @Override
     protected void abstractMethod() {
-
+        System.out.println("ConcreteTemplate abstractMethod");
     }
 
     @Override
     protected void hoodMethod() {
-        super.hoodMethod();
+        System.out.println("ConcreteTemplate hoodMethod");
     }
 }

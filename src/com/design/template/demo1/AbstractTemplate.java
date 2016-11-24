@@ -15,7 +15,7 @@ public abstract class AbstractTemplate {
 
     protected abstract void abstractMethod();
 
-    protected void hoodMethod(){}
+    protected abstract void hoodMethod();
 
     private final void concreteMethod(){}
 }
