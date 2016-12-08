@@ -10,5 +10,7 @@ public class SingletonTest {
     public static void main(String[] args) {
         SingletonDemo instance =SingletonDemo.instance;
         instance.singletonOperation();
+
+        SingletonDemo.instance.singletonOperation();
     }
 }
