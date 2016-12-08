@@ -1,0 +1,3 @@
+Singleton是最常见的单例
+
+ConcurrentSingleton1，ConcurrentSingleton3，ConcurrentSingleton3是三种在多线程使用单例的方式
