@@ -16,7 +16,7 @@ public class ConcreteAggregate extends Aggregate {
     }
 
     /**
-      * 内部成员类，具体迭代子类
+     * 内部成员类，具体迭代子类
      */
     private class ConcreteIterator implements Iterator
     {
