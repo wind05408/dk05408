@@ -168,8 +168,8 @@ public class CountSum{
     }
 
     public static void main(String[] args) throws Exception {
-//        String path = "D:\\dev\\code\\weixinEnt";
-        String path = "E:\\test";
+        String path = "D:\\dev\\code\\IWUumSOA";
+//        String path = "E:\\test";
         CountSum code = new CountSum(new File(path));
         code.count();
         code.print();
