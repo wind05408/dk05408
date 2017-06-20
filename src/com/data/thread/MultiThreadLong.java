@@ -3,7 +3,7 @@ package com.data.thread;
 /**
  * Created with IntelliJ IDEA
  * MultiThreadLong
- *
+ * 32Bit JMM 原子性
  * @author dk
  * @date 2017/6/20 14:48
  */
