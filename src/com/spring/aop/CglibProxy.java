@@ -27,12 +27,12 @@ public class CglibProxy implements MethodInterceptor {
         return result;
     }
 }
-
-/**
- * jar
- * asm-2.2.3.jar
- * asm-commons-2.2.3.jar
- * asm-util-2.2.3.jar
- * cglib-nodep-2.1_3.jar
- *
- */
+//
+///**
+// * jar
+// * asm-2.2.3.jar
+// * asm-commons-2.2.3.jar
+// * asm-util-2.2.3.jar
+// * cglib-nodep-2.1_3.jar
+// *
+// */
