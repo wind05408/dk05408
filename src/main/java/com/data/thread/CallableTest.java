@@ -20,7 +20,7 @@ public class CallableTest {
                 thread.start();
             }
         }
-        System.out.println("Ö÷Ïß³ÌforÑ­»·Ö´ÐÐÍê±Ï..");
+        System.out.println("ï¿½ï¿½ï¿½ß³ï¿½forÑ­ï¿½ï¿½Ö´ï¿½ï¿½ï¿½ï¿½ï¿½..");
 
         try {
             int sum = ft.get();
@@ -34,7 +34,7 @@ public class CallableTest {
 class MyCallable implements Callable<Integer>{
     private int i = 0;
     @Override
-    public Integer call() throws Exception {
+    public Integer call() {
         int sum = 0;
         for (;i<100;i++){
             System.out.println(Thread.currentThread().getName()+" "+i);

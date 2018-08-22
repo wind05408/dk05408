@@ -16,9 +16,6 @@ public class FileName implements FilenameFilter {
         if(file.getName().toLowerCase().endsWith(".java")) {
             return true;
         }
-        if(file.isDirectory()) {
-            return true;
-        }
-        return false;
+        return file.isDirectory();
     }
 }

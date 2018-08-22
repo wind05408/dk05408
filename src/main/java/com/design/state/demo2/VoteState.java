@@ -12,5 +12,5 @@ public interface VoteState {
      * @param voteManager    投票上下文，用来在实现状态对应的功能处理的时候，
      *                         可以回调上下文的数据
      */
-    public void vote(String user,String voteItem,VoteManager voteManager);
+    void vote(String user, String voteItem, VoteManager voteManager);
 }

@@ -27,13 +27,13 @@ public class VolatileMain2 {
                 public void run() {
                     for(int j=0;j<10;j++)
                         test.increase();
-                };
+                }
             }.start();
         }
 
 
         while(Thread.activeCount()>1){
-            //±£Ö¤Ç°ÃæµÄÏß³Ì¶¼Ö´ÐÐÍê
+            //ï¿½ï¿½Ö¤Ç°ï¿½ï¿½ï¿½ï¿½ß³Ì¶ï¿½Ö´ï¿½ï¿½ï¿½ï¿½
             Thread.yield();
             System.out.println(Thread.activeCount());
         }

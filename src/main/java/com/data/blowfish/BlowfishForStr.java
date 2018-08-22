@@ -297,12 +297,8 @@ public class BlowfishForStr {
 				return false;
 			}
 			testbf2.decrypt(tv_t2);
-			if ((tv_t2[0] != tv_p2[0]) || (tv_t2[1] != tv_p2[1])) {
-				return false;
-			}
-			// all tests passed
-			return true;
-		}
+            return (tv_t2[0] == tv_p2[0]) && (tv_t2[1] == tv_p2[1]);
+        }
 
 		// internal routine to encrypt a 64bit block
 		protected long encryptBlock(long lPlainBlock) {

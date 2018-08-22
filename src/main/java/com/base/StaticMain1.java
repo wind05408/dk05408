@@ -26,4 +26,5 @@ class Demo{
     public Demo(){  // 定义构造方法
         System.out.println("2、构造方法。") ;
     }
-};
+
+}

@@ -1,9 +1,5 @@
 package com.spring.classloader;
 
-import sun.misc.Launcher;
-
-import java.net.URL;
-
 /**
  * ClassLoaderTest
  *

@@ -16,11 +16,11 @@ public class VolatileMain {
                 public void run() {
                     for(int j=0;j<1000;j++)
                         main.increase();
-                };
+                }
             }.start();
         }
 
-        while(Thread.activeCount()>2)  //±£Ö¤Ç°ÃæµÄÏß³Ì¶¼Ö´ÐÐÍê
+        while(Thread.activeCount()>2)  //ï¿½ï¿½Ö¤Ç°ï¿½ï¿½ï¿½ï¿½ß³Ì¶ï¿½Ö´ï¿½ï¿½ï¿½ï¿½
             Thread.yield();
         System.out.println(main.inc);
 

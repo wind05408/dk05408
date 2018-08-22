@@ -167,7 +167,7 @@ public class CountSum{
         this.matchRegex = matchRegex;
     }
 
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) {
         String path = "D:\\dev\\code\\IWSalarySOA";
 //        String path = "E:\\test";
         CountSum code = new CountSum(new File(path));

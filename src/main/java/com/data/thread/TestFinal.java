@@ -40,9 +40,9 @@ public class TestFinal {
         MyClass1 myClass1 = new MyClass1();
         MyClass1 myClass2 = new MyClass1();
         System.out.println(myClass1.i);
-        System.out.println(myClass1.j);
+        System.out.println(MyClass1.j);
         System.out.println(myClass2.i);
-        System.out.println(myClass2.j);
+        System.out.println(MyClass1.j);
 
 
         finalParamClass paramClass = new finalParamClass();

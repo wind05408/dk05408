@@ -5,5 +5,5 @@ package com.design.factory.demo1;
  */
 public interface Login {
     //登录验证
-    public boolean verify(String name , String password);
+    boolean verify(String name, String password);
 }

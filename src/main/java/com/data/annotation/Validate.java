@@ -7,12 +7,12 @@ import java.lang.annotation.*;
 @Target(ElementType.FIELD)
 public @interface Validate {
 
-    public ValidateTypeKind type();
+    ValidateTypeKind type();
 
-    public String name();
+    String name();
 
-    public boolean required() default false;
+    boolean required() default false;
 
-    public int maxLength() default 0;
+    int maxLength() default 0;
 
 }

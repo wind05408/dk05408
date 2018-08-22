@@ -9,7 +9,7 @@ import java.io.IOException;
 public class EscapeDemo {
 
     public EscapeDemo(T1 t1) {
-        t1.demo = this;// ½«thisÔÚ¹¹ÔìÆÚ¼ä¾ÍÒÝ³ö£¬ÕâÑùÒÝ³öµÄ¶ÔÏó±»ÈÏÎªÊÇ¡°Ã»ÓÐÕýÈ·¹¹½¨µÄ(not properly constructed)¡±
+        t1.demo = this;// ï¿½ï¿½thisï¿½Ú¹ï¿½ï¿½ï¿½ï¿½Ú¼ï¿½ï¿½ï¿½Ý³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý³ï¿½ï¿½Ä¶ï¿½ï¿½ï¿½ï¿½ï¿½Îªï¿½Ç¡ï¿½Ã»ï¿½ï¿½ï¿½ï¿½È·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(not properly constructed)ï¿½ï¿½
         try {
             Thread.sleep(100000000L);
         } catch (InterruptedException e) {
@@ -21,7 +21,7 @@ public class EscapeDemo {
         System.out.println("demo's method");
     }
 
-    public static void main(String[] args) throws IOException, InterruptedException, ClassNotFoundException {
+    public static void main(String[] args) {
         T1 t1 = new T1();
         t1.start();
         new EscapeDemo(t1);
@@ -32,8 +32,8 @@ public class EscapeDemo {
 
         public void run() {
             while (true) {
-                if (demo != null) {// ÊÂÊµÖ¤Ã÷£¬¼´Ê¹DemoµÄ¹¹Ôì·½·¨Î´Ö´ÐÐÍê£¬this¸³Öµ¸øT1.demoºó£¬²»Îªnull
-                    demo.print();// ÇÒÄÜ¹»Õý³£Ê¹ÓÃdemoµÄÊµÀý·½·¨¡£ÖÁÓÚÓÉÓÚdemoµÄ¹¹Ôì·½·¨Î´Ö´ÐÐÍê»á´øÀ´Ê²Ã´²»ÎÈ¶¨µÄÓ°Ïì£¬Ó¦¸ÃÊÇÖ¸Ëü¿ÉÄÜÎ´°´ÕÕÔ¤ÆÚµÄÈ¥³õÊ¼»¯Ò»Ð©Êý¾Ý¡£
+                if (demo != null) {// ï¿½ï¿½ÊµÖ¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¹Demoï¿½Ä¹ï¿½ï¿½ì·½ï¿½ï¿½Î´Ö´ï¿½ï¿½ï¿½ê£¬thisï¿½ï¿½Öµï¿½ï¿½T1.demoï¿½ó£¬²ï¿½Îªnull
+                    demo.print();// ï¿½ï¿½ï¿½Ü¹ï¿½ï¿½ï¿½ï¿½ï¿½Ê¹ï¿½ï¿½demoï¿½ï¿½Êµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½demoï¿½Ä¹ï¿½ï¿½ì·½ï¿½ï¿½Î´Ö´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê²Ã´ï¿½ï¿½ï¿½È¶ï¿½ï¿½ï¿½Ó°ï¿½ì£¬Ó¦ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î´ï¿½ï¿½ï¿½ï¿½Ô¤ï¿½Úµï¿½È¥ï¿½ï¿½Ê¼ï¿½ï¿½Ò»Ð©ï¿½ï¿½ï¿½Ý¡ï¿½
                 }
                 try {
                     Thread.sleep(1000L);

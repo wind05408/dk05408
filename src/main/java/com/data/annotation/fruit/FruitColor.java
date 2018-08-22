@@ -9,7 +9,7 @@ import java.lang.annotation.*;
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
 public @interface FruitColor {
-    enum Color{BULE,RED,WHITE,BLACK,GREEN};
+    enum Color{BULE,RED,WHITE,BLACK,GREEN}
 
     Color fruitColor() default Color.GREEN;
 }

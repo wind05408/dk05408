@@ -21,7 +21,7 @@ public class Demo {
         System.out.println(this.x);
     }
 
-    public static void main(String[] args) throws IOException, InterruptedException, ClassNotFoundException {
+    public static void main(String[] args) {
 //        T1 t1 = new T1();
 //        t1.start();
 //        new Demo(t1);

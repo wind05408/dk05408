@@ -52,7 +52,8 @@ function inherit(p){
        return Object.create(p);
     var t = typeof p;
     if(t !=="object"&&t !=="function") throw TypeError();
-    function f(){};
+    function f() {
+    }
     f.prototype = p;
     return new f();
 }

@@ -56,7 +56,7 @@ console.log(re.reduce(function(x,y){return x+y},0));//15
 console.log(re.reduce(function(x,y){return x*y},1));//120
 console.log(re.reduce(function(x,y){return x>y?x:y}));//5
 
-Array.isArray()
+Array.isArray();
 console.log([] instanceof Array);//true
 console.log(({}) instanceof Array);//false
 

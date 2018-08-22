@@ -5,6 +5,6 @@ package com.design.state.demo1;
  */
 public interface State {
 
-    public void handle(String param);
+    void handle(String param);
 
 }

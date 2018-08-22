@@ -21,9 +21,9 @@ var serialnum = {
     get next(){return this.$n++;},
     set next(n){
         if(n>=this.$n) this.$n = n;
-        else throw "序列号的值不能比当前值小";
+        else throw "锟斤拷锟叫号碉拷值锟斤拷锟杰比碉拷前值小";
     }
-}
+};
 serialnum.next = 100;//set
 //serialnum.next();
 console.log(serialnum.next);//get
@@ -39,8 +39,8 @@ var obj = {
         return log[log.length - 1]
     },
     set latest(str){ log[log.length - 1] = str}
-}
-obj.latest = "test+test"
+};
+obj.latest = "test+test";
 console.log (obj.latest); // Will return "test".
 
 console.log(Object.getOwnPropertyDescriptor({x:1},"x"));

@@ -7,5 +7,5 @@ package com.design.observer.demo1;
  * @date 2016/11/29
  */
 public interface Observer {
-    public void update(String state);
+    void update(String state);
 }

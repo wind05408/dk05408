@@ -10,14 +10,14 @@ import java.util.Map;
 /**
  * @author dk
  * @date 2016/3/30
- * ÊäÈë²ÎÊý×¢½âÑéÖ¤
+ * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×¢ï¿½ï¿½ï¿½ï¿½Ö¤
  */
 public class AnnotationTest {
 
     @UserAnnotation(age=20,gender = "F",id = 2014,name = "lisi")
     public Object obj;
 
-    public static void main(String[] args) throws NoSuchFieldException, IllegalAccessException, NoSuchMethodException, InvocationTargetException {
+    public static void main(String[] args) {
 //        Field field =AnnotationTest.class.getField("obj");
 //
 //        UserAnnotation ua = field.getAnnotation(UserAnnotation.class);
@@ -39,7 +39,7 @@ public class AnnotationTest {
         test.setAmount("fdf");
         Field[] fields =  ValidateTest.class.getDeclaredFields();
         for (Field field : fields) {
-            if (field.isAnnotationPresent(Validate.class)) {//¿´ÁË
+            if (field.isAnnotationPresent(Validate.class)) {//ï¿½ï¿½ï¿½ï¿½
                 Validate validateUtil = field.getAnnotation(Validate.class);
                 if(validateUtil.required() == true){
 

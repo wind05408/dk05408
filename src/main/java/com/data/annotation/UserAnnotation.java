@@ -11,8 +11,8 @@ import java.lang.annotation.Target;
 @Target(value = {ElementType.FIELD})
 @Retention(RetentionPolicy.RUNTIME)
 public @interface UserAnnotation {
-    public int id() default 0;
-    public String name() default "";
-    public int age() default 18;
-    public String gender() default "M";
+    int id() default 0;
+    String name() default "";
+    int age() default 18;
+    String gender() default "M";
 }

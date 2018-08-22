@@ -11,7 +11,7 @@ import java.nio.channels.FileChannel;
  * @date 2016/2/18
  */
 public class ChanelTest {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
 //        RandomAccessFile aFile = new RandomAccessFile("doc/df.txt","rw");
 //        FileChannel fileChannel = aFile.getChannel();
 //
@@ -38,18 +38,18 @@ public class ChanelTest {
         buff.put('a');
         buff.put('b');
         buff.put('c');
-        System.out.println("¼ÓÈëÈý¸öÔªËØºó,position="+buff.position());
+        System.out.println("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ôªï¿½Øºï¿½,position="+buff.position());
         buff.flip();
-        System.out.println("Ö´ÐÐflipºó,limit="+buff.limit());
+        System.out.println("Ö´ï¿½ï¿½flipï¿½ï¿½,limit="+buff.limit());
         System.out.println("position=" + buff.position());
-//È¡³öµÚÒ»¸öÔªËØ
-        System.out.println("µÚÒ»¸öÔªËØ(position=0):" + buff.get());
-        System.out.println("È¡³öµÚÒ»¸öÔªËØºó,position=" + buff.position());
+//È¡ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½Ôªï¿½ï¿½
+        System.out.println("ï¿½ï¿½Ò»ï¿½ï¿½Ôªï¿½ï¿½(position=0):" + buff.get());
+        System.out.println("È¡ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½Ôªï¿½Øºï¿½,position=" + buff.position());
         buff.clear();
-        System.out.println("Ö´ÐÐclear·½·¨ºó,limit="+buff.limit());
-        System.out.println("Ö´ÐÐclear·½·¨ºó,position="+buff.position());
-        System.out.println("Ö´ÐÐclearºó,»º³åÇøµÄÄÚÈÝ²¢Ã»ÓÐ±»Çå¿Õ.µÚÈý¸öÔªËØÎª:"+buff.get(2));
-        System.out.println("Ö´ÐÐ¾ø¶Ô¶ÁÈ¡ºó,position="+buff.position());
+        System.out.println("Ö´ï¿½ï¿½clearï¿½ï¿½ï¿½ï¿½ï¿½ï¿½,limit="+buff.limit());
+        System.out.println("Ö´ï¿½ï¿½clearï¿½ï¿½ï¿½ï¿½ï¿½ï¿½,position="+buff.position());
+        System.out.println("Ö´ï¿½ï¿½clearï¿½ï¿½,ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý²ï¿½Ã»ï¿½Ð±ï¿½ï¿½ï¿½ï¿½.ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ôªï¿½ï¿½Îª:"+buff.get(2));
+        System.out.println("Ö´ï¿½Ð¾ï¿½ï¿½Ô¶ï¿½È¡ï¿½ï¿½,position="+buff.position());
         
 
 

@@ -32,9 +32,6 @@ public class Tea extends HotDrink {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        if(str.equals("n")){
-            return false;
-        }
-        return true;
+        return !str.equals("n");
     }
 }
