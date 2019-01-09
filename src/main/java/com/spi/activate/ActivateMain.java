@@ -10,15 +10,19 @@ import java.util.List;
  *
  * @author: dk05408
  * @date: 2019/1/9 10:30
- * Description:${TODO}
+ * Description:dubbo spi @activate的运用
+ * 底层框架SPI提供者通过{@link com.alibaba.dubbo.common.extension.ExtensionLoader}的{@link ExtensionLoader#getActivateExtension}方法
+ * 获得条件的扩展。
+ * @see com.alibaba.dubbo.common.extension.Activate
+ * @version dubbo 2.5.6
  */
 public class ActivateMain {
 
     public static void main(String[] args) {
-        testDefault();
+//        testDefault();
         test2();
-        testValue();
-        testOrder();
+//        testValue();
+//        testOrder();
     }
 
     public static void testDefault() {

@@ -8,7 +8,10 @@ import com.alibaba.dubbo.common.extension.ExtensionLoader;
  *
  * @author: dk05408
  * @date: 2019/1/8 20:21
- * Description:${TODO}
+ * Description:dubbo spi Adaptive
+ * 在{@link ExtensionLoader}生成Extension的Adaptive Instance时，为{@link ExtensionLoader}提供信息。
+ * @see com.alibaba.dubbo.common.extension.Adaptive
+ * @version dubbo 2.5.6
  */
 public class AdaptiveMain {
     public static void main(String[] args) {
