@@ -1,0 +1,3 @@
+dubbo=com.spi.adaptive.DubboAdaptiveExt2
+cloud=com.spi.adaptive.SpringCloudAdaptiveExt2
+thrift=com.spi.adaptive.ThriftAdaptiveExt2
