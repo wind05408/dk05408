@@ -10,7 +10,6 @@ import com.alibaba.dubbo.common.extension.Adaptive;
  * @date: 2019/1/8 20:12
  * Description:${TODO}
  */
-@Adaptive
 public class ThriftAdaptiveExt2 implements AdaptiveExt2 {
     @Override
     public String echo(String msg, URL url) {
