@@ -1,6 +1,7 @@
 package com.spi.adaptive;
 
-import com.alibaba.dubbo.common.URL;
+
+import org.apache.dubbo.common.URL;
 
 /**
  * Created with IntelliJ IDEA.

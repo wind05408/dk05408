@@ -1,6 +1,6 @@
 package com.spi.dubbo;
 
-import com.alibaba.dubbo.common.extension.ExtensionLoader;
+import org.apache.dubbo.common.extension.ExtensionLoader;
 
 /**
  * Created with IntelliJ IDEA.

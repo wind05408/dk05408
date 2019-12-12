@@ -1,7 +1,7 @@
 package com.spi.activate;
 
 import com.alibaba.dubbo.common.URL;
-import com.alibaba.dubbo.common.extension.ExtensionLoader;
+import org.apache.dubbo.common.extension.ExtensionLoader;
 
 import java.util.List;
 
