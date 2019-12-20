@@ -1,6 +1,8 @@
 package com.lambda;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 /**
  * @Description: TODO
@@ -24,5 +26,14 @@ public class PersonLambda {
         for (Person p:person) {
             System.out.println(p);
         }
+
+        List list = new ArrayList();
+        list.add(10);
+        list.add(15);
+        list.add(9);
+        list.add(11);
+        list.forEach(System.out::println);
+
+        }
     }
-}
+
