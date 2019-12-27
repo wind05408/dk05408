@@ -11,9 +11,9 @@ import java.util.concurrent.CyclicBarrier;
 public class CyclicBarrierMain {
     private static CyclicBarrier cyclicBarrier;
 
-    static class CyclicBarrierThread extends Thread{
+    static class CyclicBarrierThread extends Thread {
         @Override
-        public void run(){
+        public void run() {
             System.out.println(Thread.currentThread().getName() + "到了");
             try {
                 cyclicBarrier.await();
@@ -33,9 +33,14 @@ public class CyclicBarrierMain {
             }
         });
 
-        for(int i = 0 ; i < 5 ; i++){
+
+        for (int i = 0; i < 5; i++) {
             new CyclicBarrierThread().start();
         }
+        cyclicBarrier.reset();
+//        for (int i = 5; i < 10; i++) {
+//            new CyclicBarrierThread().start();
+//        }
     }
 
 }
